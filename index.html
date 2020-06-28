@@ -12,15 +12,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-</head>
+    </head>
 
 <body>
+
 
     <div class="wrapper">
         <!-- Sidebar  -->
@@ -71,6 +72,35 @@
         
             <div class="main">
                 <div class = "value">
+                    <div>
+                        <h5>Foco 1</h5>
+                        <label class = "switch">
+                            <input type = "checkbox" id = "led1" onclick="led1()" >
+                                <span class = "slider"></span>
+                        </label>
+                    </div>
+                    <div>
+                        <h5>Foco 2</h5>
+                        <label class = "switch">
+                            <input type = "checkbox" id = "led2" onclick="led2()">
+                                <span class = "slider"></span>
+                        </label>
+                    </div>
+                    <div>
+                        <h5>Foco 3</h5>
+                        <label class = "switch">
+                            <input type = "checkbox" id = "led3" onclick="led3()">
+                                <span class = "slider"></span>
+                        </label>
+                    </div>
+                    <div>
+                        <h5>Foco 4</h5>
+                        <label class = "switch" id = "led4" onclick="led4()">
+                            <input type = "checkbox">
+                                <span class = "slider"></span>
+                        </label>
+                    </div>
+                    
                     <div class="card border-info mb-3" style="max-width: 18rem;">
                         <div class="card-body text-info">
                           <h5 class="card-title">TEMPERATURA 1</h5>
@@ -111,10 +141,55 @@
     </div>
 
     <script>
-        var ctx = document.getElementById('myChart1').getContext('2d');
-        var chart = new Chart(ctx, {
+        const checkbox1 = document.getElementById ('led1');
+        const checkbox2 = document.getElementById ('led2');
+        const checkbox3 = document.getElementById ('led3');
+        const checkbox4 = document.getElementById ('led4');
+        function led1(){
+            if (checkbox1.checked)
+            {
+                console.log ('Encendido')
+            }
+            else {
+                console.log ('Apagado')
+            }
+        }
+        function led2(){
+            if (checkbox2.checked)
+            {
+                console.log ('Encendido')
+            }
+            else {
+                console.log ('Apagado')
+            }
+        }
+        function led3(){
+            if (checkbox3.checked)
+            {
+                console.log ('Encendido')
+            }
+            else {
+                console.log ('Apagado')
+            }
+        }
+        function led4(){
+            if (checkbox4.checked)
+            {
+                console.log ('Encendido')
+            }
+            else {
+                console.log ('Apagado')
+            }
+        }
+
+
+
+        var ctx1 = document.getElementById('myChart1').getContext('2d');
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+
+        var chart1 = new Chart(ctx1, {
             // The type of chart we want to create
-            type: 'bar',
+            type: 'line',
 
             // The data for our dataset
             data: {
@@ -128,12 +203,10 @@
             },
 
             // Configuration options go here
-    options: {}
-});
-    </script>
-    <script>
-        var ctx = document.getElementById('myChart2').getContext('2d');
-        var chart = new Chart(ctx, {
+            options: {}
+        });
+        
+        var chart2 = new Chart(ctx2, {
             // The type of chart we want to create
             type: 'line',
 
@@ -151,8 +224,12 @@
             // Configuration options go here
             options: {}
         }
-        )            
+        )         
     </script>
+    <script>
+    
+    </script>
+    
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
